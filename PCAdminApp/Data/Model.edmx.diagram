@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b8b128ba6843407897094798dffb5019" Name="Diagram1">
+        <EntityTypeShape EntityType="PCAdminModel.Computer" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCAdminModel.HardwareProfile" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCAdminModel.MaintenanceLog" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCAdminModel.PeripheralProfile" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCAdminModel.Role" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCAdminModel.Status" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCAdminModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCAdminModel.Ticket" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCAdminModel.User" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCAdminModel.Zone" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <AssociationConnector Association="PCAdminModel.FK_Computer_HardwareProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="PCAdminModel.FK_Computer_PeripheralProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="PCAdminModel.FK_Computer_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="PCAdminModel.FK_Computer_Zone" ManuallyRouted="false" />
+        <AssociationConnector Association="PCAdminModel.FK_MaintenanceLog_Computer" ManuallyRouted="false" />
+        <AssociationConnector Association="PCAdminModel.FK_Ticket_Computer" ManuallyRouted="false" />
+        <AssociationConnector Association="PCAdminModel.FK_MaintenanceLog_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PCAdminModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
