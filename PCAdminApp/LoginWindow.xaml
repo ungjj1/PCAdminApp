@@ -2,11 +2,33 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PCAdminApp"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
+        Title="LoginWindow" Height="400" Width="500">
     <Grid>
-        
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image Source="/Resources/pcclublogo.png" Height="70"/>
+            <StackPanel Orientation="Vertical" Margin="0 10">
+                <TextBlock Text="Логин"/>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="UserOutline"/>
+                    <TextBox Name="TbUserLogin" Width="200"/>
+                </StackPanel>
+                <TextBlock Text="Пароль"/>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="PasswordOutline"/>
+                    <PasswordBox x:Name="TBUserPassword" Width="200"/>
+                </StackPanel>
+                <Button x:Name="BtnAuth" Click="BtnAuth_Click" Content="Войти" Margin="0 10">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

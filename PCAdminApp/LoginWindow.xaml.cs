@@ -23,5 +23,10 @@ namespace PCAdminApp
         {
             InitializeComponent();
         }
+
+        private void BtnAuth_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

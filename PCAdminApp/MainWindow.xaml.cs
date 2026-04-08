@@ -22,10 +22,10 @@ namespace PCAdminApp
     public partial class MainWindow : Window
     {
         private User currentUser;
-        public MainWindow(User user)
+        public MainWindow()
         {
             InitializeComponent();
-            this.currentUser = user;
+            //this.currentUser = user;
             if(currentUser != null && currentUser.RoleId == 2)
             {
                 BtnTicket.Visibility = Visibility.Collapsed;  
@@ -41,19 +41,19 @@ namespace PCAdminApp
         private void BtnTicket_Click(object sender, RoutedEventArgs e)
         {
             TxtPageTitle.Text = "Заявки";
-            MainFrame.Navigate(new Pages.TicketPage());
+            //MainFrame.Navigate(new Pages.TicketPage());
         }
 
         private void BtnInventory_Click(object sender, RoutedEventArgs e)
         {
             TxtPageTitle.Text = "Склад";
-            MainFrame.Navigate(new Pages.IvnentoryPage());
+            //MainFrame.Navigate(new Pages.IvnentoryPage());
         }
 
         private void BtnReport_Click(object sender, RoutedEventArgs e)
         {
             TxtPageTitle.Text = "Отчет";
-            MainFrame.Navigate(new Pages.ReportPage());
+            //MainFrame.Navigate(new Pages.ReportPage());
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)

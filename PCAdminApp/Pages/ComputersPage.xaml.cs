@@ -24,5 +24,15 @@ namespace PCAdminApp.Pages
         {
             InitializeComponent();
         }
+
+        private void BtnClients_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RegistrationClient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

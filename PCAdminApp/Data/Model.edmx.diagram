@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b8b128ba6843407897094798dffb5019" Name="Diagram1">
+      <Diagram DiagramId="530c2d1279b8457a8123e57e6184b487" Name="Diagram1">
         <EntityTypeShape EntityType="PCAdminModel.Computer" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PCAdminModel.HardwareProfile" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PCAdminModel.MaintenanceLog" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
@@ -15,6 +15,7 @@
         <EntityTypeShape EntityType="PCAdminModel.Ticket" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PCAdminModel.User" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PCAdminModel.Zone" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCAdminModel.Client" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="PCAdminModel.FK_Computer_HardwareProfile" ManuallyRouted="false" />
         <AssociationConnector Association="PCAdminModel.FK_Computer_PeripheralProfile" ManuallyRouted="false" />
         <AssociationConnector Association="PCAdminModel.FK_Computer_Status" ManuallyRouted="false" />

@@ -35,5 +35,6 @@ namespace PCAdminApp.Data
         public virtual DbSet<Ticket> Ticket { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Zone> Zone { get; set; }
+        public virtual DbSet<Client> Client { get; set; }
     }
 }
