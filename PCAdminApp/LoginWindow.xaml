@@ -6,22 +6,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PCAdminApp"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="400" Width="500">
+        Title="LoginWindow" Height="400" Width="500" Background="#262626">
     <Grid>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Image Source="/Resources/pcclublogo.png" Height="70"/>
+            <Image Source="/Resources/pcclublogo.png" Height="50"/>
             <StackPanel Orientation="Vertical" Margin="0 10">
-                <TextBlock Text="Логин"/>
+                <TextBlock Text="Логин" Foreground="White" Margin="15 0"/>
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="UserOutline"/>
-                    <TextBox Name="TbUserLogin" Width="200"/>
+                    <materialDesign:PackIcon Kind="UserOutline" Foreground="White" Height="25"/>
+                    <TextBox Name="TbUserLogin" Width="200" Height="25" FontSize="16"/>
                 </StackPanel>
-                <TextBlock Text="Пароль"/>
+                <TextBlock Text="Пароль" Foreground="White" Margin="15 0"/>
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="PasswordOutline"/>
-                    <PasswordBox x:Name="TBUserPassword" Width="200"/>
+                    <materialDesign:PackIcon Kind="PasswordOutline" Foreground="White" Height="25"/>
+                    <PasswordBox x:Name="TBUserPassword" Width="200" Height="25" FontSize="16"/>
                 </StackPanel>
-                <Button x:Name="BtnAuth" Click="BtnAuth_Click" Content="Войти" Margin="0 10">
+                <Button x:Name="BtnAuth" Click="BtnAuth_Click" Content="Войти" Margin="0 10" Height="30" Width="200" HorizontalAlignment="Center" Background="#FC202C" Foreground="White" FontWeight="Bold" BorderThickness="0">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>

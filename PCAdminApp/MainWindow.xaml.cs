@@ -29,7 +29,9 @@ namespace PCAdminApp
             if(currentUser != null && currentUser.RoleId == 2)
             {
                 BtnTicket.Visibility = Visibility.Collapsed;  
-            }    
+            }
+
+            TBUserName.Text = currentUser.FullName;
         }
 
         private void BtnComputers_Click(object sender, RoutedEventArgs e)
@@ -47,7 +49,7 @@ namespace PCAdminApp
         private void BtnInventory_Click(object sender, RoutedEventArgs e)
         {
             TxtPageTitle.Text = "Склад";
-            //MainFrame.Navigate(new Pages.IvnentoryPage());
+            //MainFrame.Navigate(new Pages.InventoryPage());
         }
 
         private void BtnReport_Click(object sender, RoutedEventArgs e)

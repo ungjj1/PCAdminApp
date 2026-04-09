@@ -38,7 +38,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>pcclublogo.ico</ApplicationIcon>
+    <ApplicationIcon>LogoToIco.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -221,9 +221,10 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-    <Resource Include="pcclublogo.ico" />
-    <Resource Include="Resources\pcclublogo.ico" />
     <Resource Include="Resources\pcclublogo.png" />
+    <Resource Include="LogoToIco.ico" />
+    <Resource Include="Resources\LogoToIco.ico" />
+    <Resource Include="pcclublogo.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
