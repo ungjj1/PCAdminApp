@@ -22,10 +22,10 @@ namespace PCAdminApp
     public partial class MainWindow : Window
     {
         private User currentUser;
-        public MainWindow()
+        public MainWindow(User user)
         {
             InitializeComponent();
-            //this.currentUser = user;
+            this.currentUser = user;
             if(currentUser != null && currentUser.RoleId == 2)
             {
                 BtnTicket.Visibility = Visibility.Collapsed;  
@@ -34,7 +34,7 @@ namespace PCAdminApp
 
         private void BtnComputers_Click(object sender, RoutedEventArgs e)
         {
-            TxtPageTitle.Text = "Панель управления";
+            TxtPageTitle.Text = "Панель управления устройствами";
             MainFrame.Navigate(new Pages.ComputersPage());
         }
 

@@ -26,7 +26,20 @@ namespace PCAdminApp
 
         private void BtnAuth_Click(object sender, RoutedEventArgs e)
         {
+            string login = TbUserLogin.Text;
+            string password = TBUserPassword.Password;
+            var user = App.db.User.FirstOrDefault(p => p.Username == login && p.Password == password);
 
+            if (user != null)
+            {
+                MainWindow main = new MainWindow(user);
+                main.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Неправильные данные", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
