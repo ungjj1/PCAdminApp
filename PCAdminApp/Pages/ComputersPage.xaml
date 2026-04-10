@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <Border Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="BtnClients" Click="BtnClients_Click" Margin="10 0">
+                <Button x:Name="BtnClients" Click="BtnClients_Click" Margin="10 0" Background="#3B3B3B" Foreground="White">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <materialDesign:PackIcon Kind="PersonOutline" HorizontalAlignment="Center"/>
                         <TextBlock Text="Список клиентов" Margin="10 0"/>
@@ -26,7 +26,7 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button x:Name="RegistrationClinet" Click="RegistrationClient_Click">
+                <Button x:Name="RegistrationClinet" Click="RegistrationClient_Click" Background="#3B3B3B" Foreground="White">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <materialDesign:PackIcon Kind="PersonAddOutline" HorizontalAlignment="Center"/>
                         <TextBlock Text="Добавить клиента" Margin="10 0"/>

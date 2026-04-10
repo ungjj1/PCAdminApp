@@ -38,7 +38,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>LogoToIco.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -150,10 +151,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\RegistrationClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\ComputersPage.xaml.cs">
       <DependentUpon>ComputersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegistrationClientWindow.xaml.cs">
+      <DependentUpon>RegistrationClientWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -222,9 +230,7 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Resource Include="Resources\pcclublogo.png" />
-    <Resource Include="LogoToIco.ico" />
     <Resource Include="Resources\LogoToIco.ico" />
-    <Resource Include="pcclublogo.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -40,7 +40,8 @@ namespace PCAdminApp.Pages
 
         private void RegistrationClient_Click(object sender, RoutedEventArgs e)
         {
-
+            RegistrationClientWindow reg = new RegistrationClientWindow();
+            reg.Show();
         }
 
         private void BtnChangeStatusPC_Click(object sender, RoutedEventArgs e)
