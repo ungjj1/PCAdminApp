@@ -23,6 +23,14 @@ namespace PCAdminApp.Pages
         public ComputersPage()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            var computers = App.db.Computer.Include("Status").ToList();
+
+            this.DataContext = new { ComputersList = computers };
         }
 
         private void BtnClients_Click(object sender, RoutedEventArgs e)
@@ -31,6 +39,11 @@ namespace PCAdminApp.Pages
         }
 
         private void RegistrationClient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnChangeStatusPC_Click(object sender, RoutedEventArgs e)
         {
 
         }
