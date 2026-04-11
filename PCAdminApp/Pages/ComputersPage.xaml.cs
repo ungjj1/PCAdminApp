@@ -80,7 +80,14 @@ namespace PCAdminApp.Pages
 
             if (computer == null) return;
 
-            CreateTicket ticket = new CreateTicket(computer);
+            if (computer.Status.Id != 2)
+            {
+                CreateTicket ticket = new CreateTicket(computer);
+            }
+            else
+            {
+                computer.Status = App.db.Status.Find(1);
+            }
         }
 
         private void BtnBlockPC_Click(object sender, RoutedEventArgs e)
