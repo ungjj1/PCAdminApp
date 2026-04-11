@@ -35,7 +35,8 @@ namespace PCAdminApp.Pages
 
         private void BtnClients_Click(object sender, RoutedEventArgs e)
         {
-
+            ClientsWindow clientsWindow = new ClientsWindow();
+            clientsWindow.Show();
         }
 
         private void RegistrationClient_Click(object sender, RoutedEventArgs e)

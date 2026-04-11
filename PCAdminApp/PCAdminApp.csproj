@@ -147,7 +147,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\ClientsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ComputersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CurrentClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,8 +165,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\ClientsWindow.xaml.cs">
+      <DependentUpon>ClientsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ComputersPage.xaml.cs">
       <DependentUpon>ComputersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CurrentClientWindow.xaml.cs">
+      <DependentUpon>CurrentClientWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegistrationClientWindow.xaml.cs">
       <DependentUpon>RegistrationClientWindow.xaml</DependentUpon>
