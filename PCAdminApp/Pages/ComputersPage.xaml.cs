@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCAdminApp.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,16 @@ namespace PCAdminApp.Pages
         {
             InitializeComponent();
             LoadData();
+            RefreshStatus();
+        }
+
+        private void RefreshStatus()
+        {
+            var itemsControl = FindName("ComputersItemsControl") as ItemsControl;
+            if (itemsControl != null)
+            {
+                itemsControl.Items.Refresh();
+            }
         }
 
         private void LoadData()
@@ -45,9 +56,67 @@ namespace PCAdminApp.Pages
             reg.Show();
         }
 
-        private void BtnChangeStatusPC_Click(object sender, RoutedEventArgs e)
+        private void BtnTurnOffOn_Click(object sender, RoutedEventArgs e)
         {
+            var computer = (sender as Button)?.DataContext as Computer;
 
+            if (computer == null) return;
+
+            if (computer.Status.Id == 4)
+            {
+                computer.Status = App.db.Status.Find(1);
+            }
+            else
+            {
+                computer.Status = App.db.Status.Find(4);
+            }
+            App.db.SaveChanges();
+            RefreshStatus();
+        }
+
+        private void BtnReport_Click(object sender, RoutedEventArgs e)
+        {
+            var computer = (sender as Button)?.DataContext as Computer;
+
+            if (computer == null) return;
+
+            CreateTicket ticket = new CreateTicket(computer);
+        }
+
+        private void BtnBlockPC_Click(object sender, RoutedEventArgs e)
+        {
+            var computer = (sender as Button)?.DataContext as Computer;
+
+            if (computer == null) return;
+
+            if (computer.Status.Id == 3)
+            {
+                computer.Status = App.db.Status.Find(1);
+            }
+            else
+            {
+                MessageBox.Show("Компьютер уже заблокирован", "Ошибка блокировки", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            App.db.SaveChanges();
+            RefreshStatus();
+        }
+
+        private void BtnUnblockPC_Click(object sender, RoutedEventArgs e)
+        {
+            var computer = (sender as Button)?.DataContext as Computer;
+
+            if (computer == null) return;
+
+            if (computer.Status.Id == 1)
+            {
+                computer.Status = App.db.Status.Find(3);
+            }
+            else
+            {
+                MessageBox.Show("Компьютер уже разблокирован", "Ошибка разблокировки", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            App.db.SaveChanges();
+            RefreshStatus();
         }
     }
 }

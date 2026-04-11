@@ -159,6 +159,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\CreateTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\CurrentClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -177,6 +181,9 @@
     </Compile>
     <Compile Include="Pages\ComputersPage.xaml.cs">
       <DependentUpon>ComputersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreateTicket.xaml.cs">
+      <DependentUpon>CreateTicket.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\CurrentClientWindow.xaml.cs">
       <DependentUpon>CurrentClientWindow.xaml</DependentUpon>

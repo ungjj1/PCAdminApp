@@ -40,7 +40,7 @@
             </StackPanel>
         </Border>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
-            <ItemsControl ItemsSource="{Binding ComputersList}" Margin="10">
+            <ItemsControl ItemsSource="{Binding ComputersList}" Margin="10" x:Name="ComputersItemsControl">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal" />
@@ -59,11 +59,10 @@
                                     <TextBlock Text="{Binding Status.Name, FallbackValue='Свободен'}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="11"/>
                                 </Border>
 
-                                <Button Content="Сброс" Background="#D93846" Foreground="White" Margin="4,4,4,0" Height="24" BorderThickness="0" FontSize="10"/>
+                                <Button Content="Вкл/Выкл" Name="BtnTurnOffOn" Click="BtnTurnOffOn_Click" Background="#D93846" Foreground="White" Margin="4,4,4,0" Height="24" BorderThickness="0" FontSize="10"/>
 
                                 <StackPanel Margin="0,5">
-                                    <TextBlock Text="-- мин" HorizontalAlignment="Center" FontSize="10"/>
-                                    <TextBlock Text="00:00" HorizontalAlignment="Center" FontSize="11" FontWeight="Bold"/>
+                                    <TextBlock Text="Последний осмотр:" HorizontalAlignment="Left" Margin="5 0 0 0" FontSize="10"/>
                                 </StackPanel>
 
                                 <Grid Margin="4,2">
@@ -71,24 +70,17 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Border Background="White" BorderBrush="Silver" BorderThickness="1">
-                                        <TextBlock Text="--.--" HorizontalAlignment="Center" FontSize="10"/>
-                                    </Border>
-                                    <Button Grid.Column="1" Background="#28A745" Foreground="White" Width="20" Height="20" Margin="2,0,0,0" BorderThickness="0" Content="💾"/>
+                                    <TextBlock Text="{Binding LastMaintenanceDate, StringFormat={}{0:dd.MM.yyyy}}" HorizontalAlignment="Center"/>
                                 </Grid>
 
-                                <CheckBox Content="Посадка" Margin="5,2" FontSize="10"/>
-                                <CheckBox Content="Бронь" Margin="5,2" FontSize="10"/>
+                                
 
-                                <UniformGrid Columns="1" Margin="4,2">
-                                    <Button Background="#D93846" Margin="0,1" Height="22" Content="⏻" Foreground="White"/>
-                                    <Button Background="#28A745" Margin="0,1" Height="22" Content="⟳" Foreground="White"/>
-                                </UniformGrid>
+                                
 
-                                <Button Content="Тех.старт" Background="#333" Foreground="White" Margin="4,4,4,2" Height="24" BorderThickness="0" FontSize="10"/>
+                                <Button Content="В ремонт" Background="#333" Foreground="White" Margin="4,4,4,2" Height="24" BorderThickness="0" FontSize="10" Name="BtnReport" Click="BtnReport_Click"/>
 
-                                <Button Content="Заблокиро..." Margin="4,1" Height="22" BorderBrush="#D93846" Foreground="#D93846" Background="Transparent" FontSize="9"/>
-                                <Button Content="Разблокир..." Margin="4,1" Height="22" BorderBrush="#28A745" Foreground="#28A745" Background="Transparent" FontSize="9"/>
+                                <Button Content="Заблокировать" Margin="4,1" Height="22" BorderBrush="#D93846" Foreground="#D93846" Background="Transparent" FontSize="9" Name="BtnBlockPC" Click="BtnBlockPC_Click"/>
+                                <Button Content="Разблокировать" Margin="4,1" Height="22" BorderBrush="#28A745" Foreground="#28A745" Background="Transparent" FontSize="9" Name="BtnUnblocPC" Click="BtnUnblockPC_Click"/>
 
                                 <TextBlock Text="{Binding IpAddress}" HorizontalAlignment="Center" Margin="0,5" FontSize="9" Foreground="Gray"/>
                             </StackPanel>
