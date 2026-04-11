@@ -47,17 +47,29 @@ namespace PCAdminApp.Pages
             }
             else
             {
-                using (var db = App.db)
+                try
                 {
-                    var newClient = new Client
+                    using (var db = App.db)
                     {
-                        FullName = ClientFullName,
-                        PhoneNumber = ClientPhoneNumber,
-                        BalanceBonus = 0,
-                        BalanceRUB = 0
-                    };
-                    db.Client.Add(newClient);
-                    db.SaveChanges();
+                        var newClient = new Client
+                        {
+                            FullName = ClientFullName,
+                            PhoneNumber = ClientPhoneNumber,
+                            BalanceBonus = 0,
+                            BalanceRUB = 0
+                        };
+                        db.Client.Add(newClient);
+                        db.SaveChanges();
+                        MessageBox.Show("Клиент успешно зарегистрирован", "Регистрация завершена", MessageBoxButton.OK, MessageBoxImage.Information);
+                        TBClientFullName.Clear();
+                        TBClinetPhone.Clear();
+                        this.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при регистрации клиента:\n{ex.Message}",
+                "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }

@@ -25,6 +25,7 @@ namespace PCAdminApp.Data
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Computer> Computer { get; set; }
         public virtual DbSet<HardwareProfile> HardwareProfile { get; set; }
         public virtual DbSet<MaintenanceLog> MaintenanceLog { get; set; }
@@ -35,6 +36,5 @@ namespace PCAdminApp.Data
         public virtual DbSet<Ticket> Ticket { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Zone> Zone { get; set; }
-        public virtual DbSet<Client> Client { get; set; }
     }
 }

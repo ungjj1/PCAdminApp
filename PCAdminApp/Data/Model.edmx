@@ -5,17 +5,11 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище PCAdminModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "PCAdmin.dbo.Client" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="FullName" />
-            <PropertyRef Name="PhoneNumber" />
-            <PropertyRef Name="BalanceRUB" />
-            <PropertyRef Name="BalanceBonus" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FullName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="BalanceRUB" Type="int" Nullable="false" />
@@ -214,6 +208,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище PCAdminModelContainer">
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Computer" EntityType="Self.Computer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HardwareProfile" EntityType="Self.HardwareProfile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MaintenanceLog" EntityType="Self.MaintenanceLog" Schema="dbo" store:Type="Tables" />
@@ -224,15 +219,6 @@
           <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zone" EntityType="Self.Zone" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Client" EntityType="Self.Client" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Client].[Id] AS [Id], 
-    [Client].[FullName] AS [FullName], 
-    [Client].[PhoneNumber] AS [PhoneNumber], 
-    [Client].[BalanceRUB] AS [BalanceRUB], 
-    [Client].[BalanceBonus] AS [BalanceBonus]
-    FROM [dbo].[Client] AS [Client]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Computer_HardwareProfile" Association="Self.FK_Computer_HardwareProfile">
             <End Role="HardwareProfile" EntitySet="HardwareProfile" />
             <End Role="Computer" EntitySet="Computer" />
@@ -271,6 +257,16 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PCAdminModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BalanceRUB" Type="Int32" Nullable="false" />
+          <Property Name="BalanceBonus" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="Computer">
           <Key>
             <PropertyRef Name="Id" />
@@ -383,20 +379,6 @@
           <Property Name="PricePerHour" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <NavigationProperty Name="Computer" Relationship="Self.FK_Computer_Zone" FromRole="Zone" ToRole="Computer" />
         </EntityType>
-        <EntityType Name="Client">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="FullName" />
-            <PropertyRef Name="PhoneNumber" />
-            <PropertyRef Name="BalanceRUB" />
-            <PropertyRef Name="BalanceBonus" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="BalanceRUB" Type="Int32" Nullable="false" />
-          <Property Name="BalanceBonus" Type="Int32" Nullable="false" />
-        </EntityType>
         <Association Name="FK_Computer_HardwareProfile">
           <End Role="HardwareProfile" Type="Self.HardwareProfile" Multiplicity="1" />
           <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
@@ -494,6 +476,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="PCAdminEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="Computer" EntityType="Self.Computer" />
           <EntitySet Name="HardwareProfile" EntityType="Self.HardwareProfile" />
           <EntitySet Name="MaintenanceLog" EntityType="Self.MaintenanceLog" />
@@ -504,7 +487,6 @@
           <EntitySet Name="Ticket" EntityType="Self.Ticket" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="Zone" EntityType="Self.Zone" />
-          <EntitySet Name="Client" EntityType="Self.Client" />
           <AssociationSet Name="FK_Computer_HardwareProfile" Association="Self.FK_Computer_HardwareProfile">
             <End Role="HardwareProfile" EntitySet="HardwareProfile" />
             <End Role="Computer" EntitySet="Computer" />
@@ -544,6 +526,17 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище PCAdminModelContainer" CdmEntityContainer="PCAdminEntities">
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="PCAdminModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="BalanceRUB" ColumnName="BalanceRUB" />
+                <ScalarProperty Name="BalanceBonus" ColumnName="BalanceBonus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Computer">
             <EntityTypeMapping TypeName="PCAdminModel.Computer">
               <MappingFragment StoreEntitySet="Computer">
@@ -647,17 +640,6 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="PricePerHour" ColumnName="PricePerHour" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Client">
-            <EntityTypeMapping TypeName="PCAdminModel.Client">
-              <MappingFragment StoreEntitySet="Client">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="BalanceRUB" ColumnName="BalanceRUB" />
-                <ScalarProperty Name="BalanceBonus" ColumnName="BalanceBonus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
