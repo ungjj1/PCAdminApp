@@ -25,6 +25,22 @@ namespace PCAdminApp.Pages
         {
             InitializeComponent();
             this.currentClient = SelectedClient;
+            TBClientFullName.Text = currentClient.FullName;
+            TBClientBalanceRUB.Text = currentClient.BalanceRUB.ToString();
+        }
+
+        private void BtnAddBalanceRub_Click(object sender, RoutedEventArgs e)
+        {
+            AddBalance add = new AddBalance(currentClient);
+            add.Show();
+            this.Close();
+        }
+
+        private void BtnCloseWindow_Click(object sender, RoutedEventArgs e)
+        {
+            ClientsWindow window = new ClientsWindow();
+            window.Show();
+            this.Close();
         }
     }
 }

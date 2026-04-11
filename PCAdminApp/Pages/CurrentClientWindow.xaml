@@ -21,7 +21,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Row="0">
-            <Button Name="BtnCloseWindow" Click="BtnCloseWindow_Click" Background="#363636" Margin="10" BorderThickness="0">
+            <Button Name="BtnCloseWindow" Click="BtnCloseWindow_Click"  Background="#363636" Margin="10" BorderThickness="0">
                 <materialDesign:PackIcon Kind="Close" Foreground="White"/>
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -34,23 +34,17 @@
             <TextBlock Text="Информация клиента" Foreground="White" FontSize="16" FontWeight="Bold"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Vertical">
-                <TextBlock Name="TBClientFullName" Text="ФИО" Foreground="White"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Margin="10 0 0 0">
-                <TextBlock Name="TBClientPhoneNumber" Text="Номер" Foreground="White"/>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <TextBlock Name="TBClientFullName" Text="ФИО" Foreground="White" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="10 0 0 0">
                 <TextBlock Text="Баланс" Foreground="White"/>
                 <TextBlock Text="руб" Foreground="White" Name="TBClientBalanceRUB"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical" Margin="10 0 0 0">
-                <TextBlock Text="Бонусы" Foreground="White"/>
-                <TextBlock Text="бонусы" Foreground="White" Name="TBClientBalanceBonus"/>
-            </StackPanel>
+           
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right" Margin="30 15">
-            <Button Name="BtnRegistration" Click="BtnRegistration_Click" Content="Зарегистрировать клиента" FontSize="10" Padding="5 0" BorderThickness="1" Background="#FB1B2A" BorderBrush="#BF131F" Foreground="White" FontWeight="SemiBold" Height="20">
+            <Button Name="BtnAddBalanceRub" Click="BtnAddBalanceRub_Click"  Content="Пополнить баланс клиента" FontSize="10" Padding="5 0" BorderThickness="1" Background="#FB1B2A" BorderBrush="#BF131F" Foreground="White" FontWeight="SemiBold" Height="20">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="7"/>
