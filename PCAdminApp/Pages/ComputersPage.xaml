@@ -55,7 +55,25 @@
                                     <TextBlock Text="{Binding PCName}" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Grid>
 
-                                <Border Background="#28A745" Height="25">
+                                <Border Height="25">
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Status.Id}" Value="1">
+                                                    <Setter Property="Background" Value="#28A745"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status.Id}" Value="2">
+                                                    <Setter Property="Background" Value="#916B2F"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status.Id}" Value="3">
+                                                    <Setter Property="Background" Value="#D93846"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Status.Id}" Value="4">
+                                                    <Setter Property="Background" Value="#6C757D"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
                                     <TextBlock Text="{Binding Status.Name, FallbackValue='Свободен'}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="11"/>
                                 </Border>
 

@@ -27,7 +27,7 @@ namespace PCAdminApp.Pages
             LoadData();
             RefreshStatus();
         }
-
+        
         private void RefreshStatus()
         {
             var itemsControl = FindName("ComputersItemsControl") as ItemsControl;
@@ -83,6 +83,8 @@ namespace PCAdminApp.Pages
             if (computer.Status.Id != 2)
             {
                 CreateTicket ticket = new CreateTicket(computer);
+                computer.Status = App.db.Status.Find(2);
+                
             }
             else
             {
