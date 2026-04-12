@@ -37,7 +37,7 @@ namespace PCAdminApp
         private void BtnComputers_Click(object sender, RoutedEventArgs e)
         {
             TxtPageTitle.Text = "Панель управления устройствами";
-            MainFrame.Navigate(new Pages.ComputersPage());
+            MainFrame.Navigate(new Pages.ComputersPage(currentUser));
         }
 
         private void BtnTicket_Click(object sender, RoutedEventArgs e)
@@ -48,8 +48,8 @@ namespace PCAdminApp
 
         private void BtnInventory_Click(object sender, RoutedEventArgs e)
         {
-            TxtPageTitle.Text = "Склад";
-            //MainFrame.Navigate(new Pages.InventoryPage());
+            TxtPageTitle.Text = "Конфигурации ПК";
+            MainFrame.Navigate(new Pages.InventoryPage(currentUser));
         }
 
         private void BtnReport_Click(object sender, RoutedEventArgs e)

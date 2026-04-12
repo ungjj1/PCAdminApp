@@ -21,9 +21,11 @@ namespace PCAdminApp.Pages
     /// </summary>
     public partial class ComputersPage : Page
     {
-        public ComputersPage()
+        private User currentUser;
+        public ComputersPage(User user)
         {
             InitializeComponent();
+            this.currentUser = user;
             LoadData();
             RefreshStatus();
         }
