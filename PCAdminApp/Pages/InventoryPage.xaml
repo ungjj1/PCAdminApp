@@ -3,12 +3,43 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:PCAdminApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="InventoryPage">
-
+    <Page.Resources>
+        <DataTemplate x:Key="InventoryTemplate">
+            <Border Margin="0 5" Padding="10" Height="140" BorderBrush="LightGray" BorderThickness="1" Background="Transparent" MouseLeftButtonUp="Border_MouseLeftButtonUp">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" Margin="20 0 0 0">
+                        <TextBlock Text="{Binding ProfileName, StringFormat='Название конфигурации: {0}'}"/>
+                        <TextBlock Text="{Binding CPU, StringFormat='Процессор: {0}'}"/>
+                        <TextBlock Text="{Binding GPU, StringFormat='Видеокарта: {0}'}"/>
+                        <TextBlock Text="{Binding RAM, StringFormat='Оперативная память: {0}'}"/>
+                        <TextBlock Text="{Binding MotherBoard, StringFormat='Материнская плата: {0}'}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </Page.Resources>
     <Grid>
-        
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="InventoryList" ItemTemplate="{StaticResource InventoryTemplate}"/>
+            </ScrollViewer>
     </Grid>
 </Page>

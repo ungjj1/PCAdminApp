@@ -21,11 +21,23 @@ namespace PCAdminApp.Pages
     /// </summary>
     public partial class InventoryPage : Page
     {
-        private UserControl currentUser;
-        public InventoryPage(UserControl user)
+        private User currentUser;
+        private List<HardwareProfile> allInventory;
+        public InventoryPage(User user)
         {
             InitializeComponent();
             this.currentUser = user;
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            allInventory = App.db.HardwareProfile.ToList();
+        }
+
+        private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
