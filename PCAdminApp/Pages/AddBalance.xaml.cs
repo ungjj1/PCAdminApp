@@ -36,9 +36,16 @@ namespace PCAdminApp.Pages
             {
                 try
                 {
-                    currentClient.BalanceRUB += PlusBalance;
-                    App.db.SaveChanges();
-                    this.Close();
+                    
+                        var clientToUpdate = App.db.Client.FirstOrDefault(c => c.Id == currentClient.Id);
+
+                        if (clientToUpdate != null)
+                        {
+                            clientToUpdate.BalanceRUB += PlusBalance;
+                            App.db.SaveChanges();
+                            this.Close();
+                        }
+                    
                 }
                 catch (Exception ex)
                 {

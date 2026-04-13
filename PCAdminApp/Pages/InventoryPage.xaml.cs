@@ -28,14 +28,55 @@ namespace PCAdminApp.Pages
             InitializeComponent();
             this.currentUser = user;
             LoadData();
+            RefreshInventoryList();
+        }
+
+        private void RefreshInventoryList()
+        {
+            try
+            {
+                if (allInventory == null) return;
+
+                IEnumerable<HardwareProfile> filter = allInventory;
+
+                string search = TBSearch.Text;
+
+                if (!string.IsNullOrEmpty(search))
+                {
+                    filter = filter.Where(o =>
+                    (o.ProfileName != null && o.ProfileName.ToLower().Contains(search)) ||
+                    (o.CPU != null && o.CPU.ToLower().Contains(search)) ||
+                    (o.GPU != null && o.GPU.ToLower().Contains(search)) ||
+                    (o.RAM != null && o.RAM.ToLower().Contains(search)) ||
+                    (o.Motherboard != null && o.Motherboard.ToLower().Contains(search))
+                    );
+                }
+
+                InventoryList.ItemsSource = search.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex}", "Ошибка поиска", MessageBoxButton.OK, MessageBoxImage.Error );
+            }
         }
 
         private void LoadData()
         {
             allInventory = App.db.HardwareProfile.ToList();
+            InventoryList.ItemsSource = allInventory;
         }
 
         private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void BtnAddConfiguration_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TBSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

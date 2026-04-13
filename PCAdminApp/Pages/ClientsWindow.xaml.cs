@@ -52,9 +52,8 @@ namespace PCAdminApp.Pages
                 PopupSearchResults.IsOpen = false;
                 return;
             }
-            using (var localDb = new PCAdminEntities())
-            {
-                var results = localDb.Client
+             
+                var results = App.db.Client
                     .Where(c => c.FullName.Contains(searchText) ||
                                 c.PhoneNumber.Contains(searchText))
                     .Take(10)
@@ -62,7 +61,7 @@ namespace PCAdminApp.Pages
 
                 ListBoxResults.ItemsSource = results;
                 PopupSearchResults.IsOpen = results.Any();
-            }
+           
         }
 
         private void BtnSelectClient_Click(object sender, RoutedEventArgs e)

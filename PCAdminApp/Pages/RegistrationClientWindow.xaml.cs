@@ -49,8 +49,7 @@ namespace PCAdminApp.Pages
             {
                 try
                 {
-                    using (var db = App.db)
-                    {
+                    
                         var newClient = new Client
                         {
                             FullName = ClientFullName,
@@ -58,13 +57,13 @@ namespace PCAdminApp.Pages
                             BalanceBonus = 0,
                             BalanceRUB = 0
                         };
-                        db.Client.Add(newClient);
-                        db.SaveChanges();
+                        App.db.Client.Add(newClient);
+                        App.db.SaveChanges();
                         MessageBox.Show("Клиент успешно зарегистрирован", "Регистрация завершена", MessageBoxButton.OK, MessageBoxImage.Information);
                         TBClientFullName.Clear();
                         TBClinetPhone.Clear();
                         this.Close();
-                    }
+                    
                 }
                 catch (Exception ex)
                 {
