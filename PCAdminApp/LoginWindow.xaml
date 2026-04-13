@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PCAdminApp"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="400" Width="500" Background="#262626">
+        Title="LoginWindow" Height="400" Width="500" Background="#262626" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Image Source="/Resources/pcclublogo.png" Height="50"/>

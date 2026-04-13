@@ -3,10 +3,104 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:PCAdminApp.Pages"
         mc:Ignorable="d"
-        Title="AddEditConfigurationWindow" Height="450" Width="800">
+        Title="AddEditConfigurationWindow" Height="450" Width="500" Background="#262626" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Button Name="BtnCloseWindow" Click="BtnCloseWindow_Click"  Background="#363636" Margin="10" BorderThickness="0" HorizontalAlignment="Right">
+            <materialDesign:PackIcon Kind="Close" Foreground="White"/>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+        <TextBlock Name="TxtHead" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 5" Grid.Row="1" Text="Название страницы" FontSize="24" FontWeight="DemiBold"/>
+            <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                <materialDesign:PackIcon Kind="RemoteDesktop" VerticalAlignment="Center" Foreground="White"/>
+                    <TextBlock Text="Название конфигурации" FontSize="14" Margin="5 0" Foreground="White" VerticalAlignment="Center"/>
+            </StackPanel>
+            <TextBox Name="TBNameConfig" Width="200" TextAlignment="Center">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <StackPanel Orientation="Horizontal"  Margin="0 5">
+                <materialDesign:PackIcon Kind="Cpu64Bit" Foreground="White" VerticalAlignment="Center" Height="19" Margin="-3 0"/>
+                <TextBlock Text="Процессор" FontSize="14" Margin="5 0" Foreground="White"/>
+            </StackPanel>
+            <TextBox Name="TBCpuName" Width="200" TextAlignment="Center">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="GraphicsProcessingUnit"  VerticalAlignment="Center" Height="19" Margin="-3 0" Foreground="White"/>
+                <TextBlock Text="Видеокарта" VerticalAlignment="Center" FontSize="14" Margin="5 0" Foreground="White"/>
+            </StackPanel>
+            <TextBox Name="TBGpuName" Width="200" TextAlignment="Center">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Memory"  VerticalAlignment="Center" Height="19" Margin="-3 0" Foreground="White"/>
+                <TextBlock Text="Оперативная память" VerticalAlignment="Center" FontSize="14" Margin="5 0" Foreground="White"/>
+            </StackPanel>
+            <TextBox Name="TBRamName" Width="200" TextAlignment="Center">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="DeveloperBoard"  VerticalAlignment="Center" Height="19" Margin="-3 0" Foreground="White"/>
+                <TextBlock Text="Материнская плата" VerticalAlignment="Center" FontSize="14" Margin="5 0" Foreground="White"/>
+            </StackPanel>
+            <TextBox Name="TBMotherBoardName" Width="200" TextAlignment="Center">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="2" Margin="0 0 0 10">
+            <Button Content="Добавить" Name="BtnAddConfig" Padding="5" Click="BtnAddConfig_Click" Foreground="White" Background="#FB1B2A" BorderBrush="#BF131F">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="Удалить" Name="BtnRemoveConfig" Padding="5" Margin="5 0 0 0" Background="#FB1B2A" BorderBrush="#BF131F" Foreground="White" Click="BtnRemoveConfig_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="Отмена" Name="BtnCancel" Margin="5 0" Padding="5" Click="BtnCancel_Click" Foreground="White" Background="#FF353434">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
