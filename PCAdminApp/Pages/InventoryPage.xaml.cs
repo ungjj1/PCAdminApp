@@ -120,7 +120,7 @@ namespace PCAdminApp.Pages
         }
         private void BtnAddConfiguration_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenEditWindow(null);
         }
 
         private void TBSearch_TextChanged(object sender, TextChangedEventArgs e)
