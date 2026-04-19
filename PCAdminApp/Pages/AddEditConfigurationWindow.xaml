@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:PCAdminApp.Pages"
         mc:Ignorable="d"
-        Title="AddEditConfigurationWindow" Height="450" Width="500" Background="#262626" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="AddEditConfigurationWindow" Height="450" Width="370" Background="#262626" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -22,13 +22,13 @@
             </Button.Resources>
         </Button>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
-        <TextBlock Name="TxtHead" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 5" Grid.Row="1" Text="Название страницы" FontSize="24" FontWeight="DemiBold"/>
+        <TextBlock TextWrapping="Wrap" Name="TxtHead" Foreground="White" TextAlignment="Center" VerticalAlignment="Center" Margin="0 5" Grid.Row="1" Text="Название страницы" FontSize="24" FontWeight="DemiBold" HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
                 <materialDesign:PackIcon Kind="RemoteDesktop" VerticalAlignment="Center" Foreground="White"/>
                     <TextBlock Text="Название конфигурации" FontSize="14" Margin="5 0" Foreground="White" VerticalAlignment="Center"/>
             </StackPanel>
-            <TextBox Name="TBNameConfig" Width="200" TextAlignment="Center">
-                <TextBox.Resources>
+            <TextBox Name="TBNameConfig" HorizontalAlignment="Left" Padding="3" TextAlignment="Left" Width="200" >
+                <TextBox.Resources> 
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
@@ -38,7 +38,7 @@
                 <materialDesign:PackIcon Kind="Cpu64Bit" Foreground="White" VerticalAlignment="Center" Height="19" Margin="-3 0"/>
                 <TextBlock Text="Процессор" FontSize="14" Margin="5 0" Foreground="White"/>
             </StackPanel>
-            <TextBox Name="TBCpuName" Width="200" TextAlignment="Center">
+            <TextBox Name="TBCpuName" Padding="3" TextAlignment="Left" Width="200" HorizontalAlignment="Left" >
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -49,7 +49,7 @@
                 <materialDesign:PackIcon Kind="GraphicsProcessingUnit"  VerticalAlignment="Center" Height="19" Margin="-3 0" Foreground="White"/>
                 <TextBlock Text="Видеокарта" VerticalAlignment="Center" FontSize="14" Margin="5 0" Foreground="White"/>
             </StackPanel>
-            <TextBox Name="TBGpuName" Width="200" TextAlignment="Center">
+            <TextBox Name="TBGpuName" Width="200" HorizontalAlignment="Left" Padding="3" TextAlignment="Left">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -60,7 +60,7 @@
                 <materialDesign:PackIcon Kind="Memory"  VerticalAlignment="Center" Height="19" Margin="-3 0" Foreground="White"/>
                 <TextBlock Text="Оперативная память" VerticalAlignment="Center" FontSize="14" Margin="5 0" Foreground="White"/>
             </StackPanel>
-            <TextBox Name="TBRamName" Width="200" TextAlignment="Center">
+            <TextBox Name="TBRamName" Width="200" HorizontalAlignment="Left" Padding="3" TextAlignment="Left">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -71,7 +71,7 @@
                 <materialDesign:PackIcon Kind="DeveloperBoard"  VerticalAlignment="Center" Height="19" Margin="-3 0" Foreground="White"/>
                 <TextBlock Text="Материнская плата" VerticalAlignment="Center" FontSize="14" Margin="5 0" Foreground="White"/>
             </StackPanel>
-            <TextBox Name="TBMotherBoardName" Width="200" TextAlignment="Center">
+            <TextBox Name="TBMotherBoardName" HorizontalAlignment="Left" Width="200" Padding="3" TextAlignment="Left">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

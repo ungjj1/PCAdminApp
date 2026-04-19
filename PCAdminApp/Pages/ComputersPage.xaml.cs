@@ -81,16 +81,18 @@ namespace PCAdminApp.Pages
             var computer = (sender as Button)?.DataContext as Computer;
 
             if (computer == null) return;
+            {
+                if (computer.Status.Id != 2)
+                {
+                    CreateTicket ticket = new CreateTicket(computer);
+                    ticket.Show();
+                    computer.Status = App.db.Status.Find(2);
 
-            if (computer.Status.Id != 2)
-            {
-                CreateTicket ticket = new CreateTicket(computer);
-                computer.Status = App.db.Status.Find(2);
-                
-            }
-            else
-            {
-                computer.Status = App.db.Status.Find(1);
+                }
+                else
+                {
+                    computer.Status = App.db.Status.Find(1);
+                }
             }
         }
 

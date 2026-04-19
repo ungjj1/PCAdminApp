@@ -26,5 +26,29 @@ namespace PCAdminApp.Pages
             InitializeComponent();
             this.currentComputer = computer;
         }
+
+        private void DatePicker_LostFocus(object sender, RoutedEventArgs e)
+        {
+            var datePicker = sender as DatePicker;
+            if (datePicker != null)
+            {
+                datePicker.SelectedDate = DateTime.Today;
+            }
+        }
+
+        private void BtnCloseWindow_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCreateTicket_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
