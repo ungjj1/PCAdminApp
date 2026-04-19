@@ -52,7 +52,7 @@
                     <materialDesign:PackIcon Kind="CalendarOutline"  VerticalAlignment="Center" Height="19" Margin="-3 0" Foreground="White"/>
                     <TextBlock Text="Дата" VerticalAlignment="Center" FontSize="14" Margin="5 0" Foreground="White"/>
                 </StackPanel>
-                <DatePicker SelectedDate="{Binding SelectedDate}" LostFocus="DatePicker_LostFocus" Height="24"/>
+                <DatePicker SelectedDate="{Binding SelectedDate}" Name="PickerDate" LostFocus="DatePicker_LostFocus" Height="24"/>
 
             </StackPanel>
         </StackPanel>

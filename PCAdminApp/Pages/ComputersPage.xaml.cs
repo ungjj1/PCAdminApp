@@ -87,14 +87,20 @@ namespace PCAdminApp.Pages
                     CreateTicket ticket = new CreateTicket(computer);
                     ticket.Show();
                     computer.Status = App.db.Status.Find(2);
+                    App.db.SaveChanges();
+                    RefreshStatus();
 
                 }
                 else
                 {
                     computer.Status = App.db.Status.Find(1);
+                    App.db.SaveChanges();
+                    RefreshStatus();
                 }
             }
         }
+
+
 
         private void BtnBlockPC_Click(object sender, RoutedEventArgs e)
         {
