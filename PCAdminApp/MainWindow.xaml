@@ -32,6 +32,12 @@
 
                 <!-- Контейнер с кнопками -->
                 <StackPanel Grid.Row="0" Margin="0 20 0 0">
+                    <Button Name="BtnUsers" Click="BtnUsers_Click" Style="{StaticResource MenuButtonStyle}" Width="250" Height="70" BorderThickness="0,2,0,2">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="UserOutline" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="30"/>
+                            <TextBlock Text="Список сотрудников" Width="160" TextWrapping="Wrap" FontSize="16"/>
+                        </StackPanel>
+                    </Button>
                     <Button Name="BtnComputers" Click="BtnComputers_Click" Style="{StaticResource MenuButtonStyle}" Width="250" Height="70" BorderThickness="0,2,0,2">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ElectricityOutline" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="30"/>
@@ -44,10 +50,22 @@
                             <TextBlock Text="Жалобы на гарнитуру" TextWrapping="Wrap" Margin="3 0" VerticalAlignment="Center" FontSize="16"/>
                         </StackPanel>
                     </Button>
+                    <Button Name="BtnZone" Click="BtnZone_Click" Style="{StaticResource MenuButtonStyle}" Width="250" Height="70" BorderThickness="0,2,0,2">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CashClock" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="30"/>
+                            <TextBlock Text="Цены по зонам" Width="160" TextWrapping="Wrap" FontSize="16"/>
+                        </StackPanel>
+                    </Button>
                     <Button Name="BtnInventory" Click="BtnInventory_Click" Style="{StaticResource MenuButtonStyle}" Width="250" Height="70">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="200">
-                            <materialDesign:PackIcon Kind="MouseOutline" VerticalAlignment="Center" Height="25" Width="25"/>
+                            <materialDesign:PackIcon Kind="Computer" VerticalAlignment="Center" Height="25" Width="25"/>
                             <TextBlock Text="Конфигурации ПК" TextWrapping="Wrap" Margin="3 0" VerticalAlignment="Center" FontSize="16"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Name="BtnPherip" Click="BtnPherip_Click" Style="{StaticResource MenuButtonStyle}" Width="250" Height="70" BorderThickness="0,2,0,2">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="KeyboardOutline" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="30" Margin="0 0 10 0"/>
+                            <TextBlock Text="Периферия устройств" Width="160" TextWrapping="Wrap" FontSize="16"/>
                         </StackPanel>
                     </Button>
                     <Button Name="BtnReport" Click="BtnReport_Click" Style="{StaticResource MenuButtonStyle}" Width="250" Height="70">

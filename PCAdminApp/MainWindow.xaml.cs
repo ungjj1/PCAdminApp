@@ -64,5 +64,20 @@ namespace PCAdminApp
             login.Show();
             this.Close();
         }
+
+        private void BtnUsers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnZone_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnPherip_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

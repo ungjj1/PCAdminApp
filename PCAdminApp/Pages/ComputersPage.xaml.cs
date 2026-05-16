@@ -91,7 +91,7 @@ namespace PCAdminApp.Pages
                     RefreshStatus();
 
                 }
-                else
+                else   
                 {
                     computer.Status = App.db.Status.Find(1);
                     App.db.SaveChanges();
