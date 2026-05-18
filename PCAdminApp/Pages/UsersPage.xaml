@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:PCAdminApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -10,7 +11,7 @@
 
     <Page.Resources>
         <DataTemplate x:Key="UsersTemplate">
-            <Border Margin="10" BorderBrush="Gray" BorderThickness="1">
+            <Border Margin="5" BorderBrush="Gray" BorderThickness="1">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -36,8 +37,19 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center"  
                                 HorizontalAlignment="Right" Margin="10 0">
-                        <Button x:Name="BtneEditUser" Click="BtnEditUser_Click" Content="Редактировать" Margin="0 5"/>
-                        <Button x:Name="BtnFireUser" Click="BtnFireUser_Click" Content="Уволить" Background="Red" Foreground="White"/>
+                        <Button x:Name="BtnFireUser" Click="BtnFireUser_Click" Background="#E82E39" Foreground="White" Padding="10 5" BorderThickness="0">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="UserCancel" Height="20" Width="20" Margin="0 -1 4 0"/>
+                                    <TextBlock Text="Уволить"/>
+                                </StackPanel>
+                            </Button.Content>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -53,7 +65,13 @@
             <TextBox x:Name="TBSearch" Width="200" Height="30" Margin="0 0 10 0" TextChanged="TBSearch_TextChanged" FontSize="16" Padding="0 3"/>
             <TextBlock Text="Фильтр: " VerticalAlignment="Center"/>
             <ComboBox x:Name="SortComboBox" Width="200" Height="30" Margin="10 0" SelectionChanged="SortComboBox_SelectionChanged" FontSize="16"/>
-            <Button x:Name="BtnAddUser" Click="BtnAddUser_Click" Content="Добавить" Padding="10 0"/>
+            <Button x:Name="BtnAddUser" Click="BtnAddUser_Click" Content="Добавить" Padding="10 0" BorderThickness="0" Background="#E82E39" Foreground="White">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <ItemsControl x:Name="UsersList" ItemTemplate="{StaticResource UsersTemplate}"/>

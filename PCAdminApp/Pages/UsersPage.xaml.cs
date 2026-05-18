@@ -81,11 +81,6 @@ namespace PCAdminApp.Pages
             UsersList.ItemsSource = filteredusers.ToList();
         }
 
-        private void BtnEditUser_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void BtnFireUser_Click(object sender, RoutedEventArgs e)
         {
 
