@@ -74,12 +74,13 @@ namespace PCAdminApp
 
         private void BtnZone_Click(object sender, RoutedEventArgs e)
         {
-
+            TxtPageTitle.Text = "Игровые зоны";
+            MainFrame.Navigate(new Pages.PageZones(currentUser));
         }
 
         private void BtnPherip_Click(object sender, RoutedEventArgs e)
         {
-
+            //
         }
     }
 }
