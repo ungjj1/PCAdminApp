@@ -29,6 +29,7 @@ namespace PCAdminApp
             if(currentUser != null && currentUser.RoleId == 2)
             {
                 BtnTicket.Visibility = Visibility.Collapsed;  
+                BtnUsers.Visibility = Visibility.Collapsed;
             }
 
             TBUserName.Text = currentUser.FullName;
@@ -67,7 +68,8 @@ namespace PCAdminApp
 
         private void BtnUsers_Click(object sender, RoutedEventArgs e)
         {
-
+            TxtPageTitle.Text = "Список сотрудников";
+            MainFrame.Navigate(new Pages.UsersPage(currentUser));
         }
 
         private void BtnZone_Click(object sender, RoutedEventArgs e)
