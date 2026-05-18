@@ -56,7 +56,7 @@ namespace PCAdminApp
         private void BtnReport_Click(object sender, RoutedEventArgs e)
         {
             TxtPageTitle.Text = "Отчет";
-            //MainFrame.Navigate(new Pages.ReportPage());
+            MainFrame.Navigate(new Pages.ReportPage(currentUser));
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
