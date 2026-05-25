@@ -80,7 +80,8 @@ namespace PCAdminApp
 
         private void BtnPherip_Click(object sender, RoutedEventArgs e)
         {
-            //
+            TxtPageTitle.Text = "Периферия устройств";
+            MainFrame.Navigate(new Pages.PeripheriaPage(currentUser));
         }
     }
 }

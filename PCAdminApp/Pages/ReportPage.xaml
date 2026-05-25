@@ -21,7 +21,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3">
-            <TextBlock Text="Создание отчетов" Foreground="White" FontWeight="Bold" FontSize="24" Margin="0 20 0 0" />
+            <TextBlock Text="Создание отчетов" Foreground="Black" FontWeight="Bold" FontSize="24" Margin="0 20 0 0" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0">
             <DataGrid Name="ClientsDG" AutoGenerateColumns="False" ItemsSource="{Binding Client}" Visibility="Collapsed">
@@ -33,7 +33,7 @@
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.RowSpan="3" Margin="10 -50 0 0" VerticalAlignment="Center">
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.RowSpan="3" Margin="5 -50 5 0" VerticalAlignment="Center">
             <TextBlock Text="Создать отчет о клиентах" Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="16" Foreground="Black" FontWeight="Bold"/>
             <TextBlock TextWrapping="Wrap" Margin="0 0 0 10">
                 Данный отчет хранит следующую информацию: <LineBreak/>
