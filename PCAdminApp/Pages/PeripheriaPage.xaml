@@ -18,7 +18,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="BtnEditPeripheria" Click="BtnEditPeripheries_Click" Margin="5" Background="#E82E39" Grid.Column="0" Height="40">
+                    <Button x:Name="BtnEditPeripheria" Click="BtnEditPeripheria_Click"  Margin="5" Background="#E82E39" Grid.Column="0" Height="40">
                         <Button.Content>
                             <materialDesign:PackIcon Kind="Pencil" Foreground="White"/>
                         </Button.Content>
@@ -72,9 +72,22 @@
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Поиск" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBox x:Name="TBSeacrh" HorizontalAlignment="Center" TextChanged="TBSeacrh_TextChanged" Width="200" TextAlignment="Left" FontSize="14" Height="25" Margin="5 0 0 0"/>
+            <TextBlock Text="Сортировка" Margin="5 0 0 0"/>
+            <ComboBox x:Name="SortComboBox" SelectedItem="0" Width="150" SelectionChanged="SortComboBox_SelectionChanged"/>
+            <Button x:Name="BtnAddPeripProfile" Click="BtnAddPeripProfile_Click" Content="Добавить" Margin="5 0 0 0" Padding="10 0" Background="#E82E39" Foreground="White" BorderThickness="0">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
             <ItemsControl x:Name="ListPheripheiral" ItemTemplate="{StaticResource PeripheriaTeplate}"/>
         </ScrollViewer>
