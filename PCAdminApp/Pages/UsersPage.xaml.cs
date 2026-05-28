@@ -83,6 +83,33 @@ namespace PCAdminApp.Pages
 
         private void BtnFireUser_Click(object sender, RoutedEventArgs e)
         {
+            var button =  sender as Button;
+            var user = button?.DataContext as User;
+
+            if (user == null)
+            {
+                MessageBox.Show("Пожалуйста, выберите сотрудника для увольнения.",
+                              "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            MessageBoxResult result = MessageBox.Show(
+                    $"Вы действительно хотите уволить сотрудника?\n\n" +
+                    $"ФИО: {user.FullName}\n" +
+                    $"Логин: {user.Username}\n" +
+                    $"Должность: {user.Role.Name}\n\n" +
+                    $"Это действие нельзя отменить!",
+                    "Подтверждение увольнения",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                App.db.User.Remove(user);
+                App.db.SaveChanges();
+
+                LoadUsers();
+            }
 
         }
 
@@ -93,7 +120,8 @@ namespace PCAdminApp.Pages
 
         private void BtnAddUser_Click(object sender, RoutedEventArgs e)
         {
-
+            AddUserWindow add = new AddUserWindow();
+            add.Show();
         }
 
         private void SortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
