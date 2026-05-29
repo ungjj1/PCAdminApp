@@ -42,7 +42,34 @@
                 3) Игровой баланс;<LineBreak/>
                 4) Бонусный баланс.
             </TextBlock>
-            <Button x:Name="BtnCreateReport" Click="BtnCreateReport_Click" Content="Создать отчет" Height="25" FontSize="14" BorderThickness="0" Background="#E82E39" Foreground="White" FontWeight="DemiBold">
+            <Button x:Name="BtnClientReport" Click="BtnClientReport_Click" Content="Создать отчет" Height="25" FontSize="14" BorderThickness="0" Background="#E82E39" Foreground="White" FontWeight="DemiBold">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <DataGrid Name="UsersDG" AutoGenerateColumns="False" ItemsSource="{Binding User}" Visibility="Collapsed">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=FullName}" x:Name="DGFullNameUser" Header="ФИО" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=UserName}" x:Name="DGUserName" Header="Логин" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=Password}" x:Name="DGPassword" Header="Пароль" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=Role.Name}" x:Name="DGRole" Header="Роль" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" VerticalAlignment="Center" Margin="5 -50 5 0">
+            <TextBlock Text="Создать отчет о сотрудниках" Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+            <TextBlock TextWrapping="Wrap" Margin="0 0 0 10">
+                Данный отчет хранит следующую информацию: <LineBreak/>
+                1) ФИО сотрудника;<LineBreak/>
+                2) Логин сотрудника;<LineBreak/>
+                3) Пароль сотрудника;<LineBreak/>
+                4) Роль сотрудника.
+                    </TextBlock>
+            <Button x:Name="BtnUserReport" Click="BtnUserReport_Click" Content="Создать отчет" Height="25" FontSize="14" BorderThickness="0" Background="#E82E39" Foreground="White" FontWeight="DemiBold">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

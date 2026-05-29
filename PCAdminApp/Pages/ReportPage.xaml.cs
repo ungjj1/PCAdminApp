@@ -27,6 +27,7 @@ namespace PCAdminApp.Pages
     {
         private User currentUser;
         private List<Client> allClients;
+        private List<User> allusers;
         public ReportPage(User user)
         {
             InitializeComponent();
@@ -37,40 +38,96 @@ namespace PCAdminApp.Pages
         private void LoadData()
         {
             allClients = App.db.Client.ToList();
+            allusers = App.db.User.ToList();
 
             ClientsDG.ItemsSource = allClients;
+            UsersDG.ItemsSource = allusers;
         }
 
-        private void BtnCreateReport_Click(object sender, RoutedEventArgs e)
+        private void BtnClientReport_Click(object sender, RoutedEventArgs e)
         {
             if (ClientsDG.Items.Count == 0)
-    {
-        MessageBox.Show("Нет данных для экспорта");
-        return;
-    }
+            {
+                MessageBox.Show("Нет данных для экспорта");
+                return;
+            }
+
+            // Получаем данные из источника (allClients)
+            var clientsToExport = allClients ?? ClientsDG.ItemsSource as List<Client>;
+            if (clientsToExport == null) return;
+
             Excel.Application ex = new Excel.Application();
             ex.Visible = true;
             Workbook workbook = ex.Workbooks.Add(System.Reflection.Missing.Value);
             Worksheet worksheet1 = (Worksheet)workbook.Sheets[1];
 
-            for (int i = 0; i < ClientsDG.Columns.Count; i++)
+            // Заголовки
+            var properties = typeof(Client).GetProperties();
+            for (int i = 0; i < properties.Length; i++)
             {
-                Range myRange = (Range)worksheet1.Cells[1, i + 1];
-                worksheet1.Cells[1, i + 1].Font.Bold = true;
+                worksheet1.Cells[1, i + 1] = properties[i].Name;
+                ((Range)worksheet1.Cells[1, i + 1]).Font.Bold = true;
                 worksheet1.Columns[i + 1].ColumnWidth = 15;
-                myRange.Value2 = ClientsDG.Columns[i].Header.ToString(); ;
             }
 
-            for (int j = 0; j < ClientsDG.Items.Count; j++)  
+            // Данные
+            for (int j = 0; j < clientsToExport.Count; j++)
             {
-                for (int i = 0; i < ClientsDG.Columns.Count; i++)
+                var client = clientsToExport[j];
+                for (int i = 0; i < properties.Length; i++)
                 {
-                    TextBlock b = ClientsDG.Columns[i].GetCellContent(ClientsDG.Items[j]) as TextBlock;
-                    Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)worksheet1.Cells[j + 2, i + 1];
-                    myRange.Value2 = b.Text;
+                    var value = properties[i].GetValue(client)?.ToString() ?? "";
+                    worksheet1.Cells[j + 2, i + 1] = value;
                 }
             }
         }
+        private void BtnUserReport_Click(object sender, RoutedEventArgs e)
+        {
+            if (UsersDG.Items.Count == 0)
+            {
+                MessageBox.Show("Нет данных для экспорта");
+                return;
+            }
+            var usersToExport = allusers ?? UsersDG.ItemsSource as List<User>;
+            if (usersToExport == null) return;
+
+            var exportData = usersToExport.Select(u => new
+            {
+                u.Id,
+                u.Username,
+                u.Password,
+                u.FullName,
+                RoleName = u.Role?.Name ?? "Не назначена"
+            }).ToList();
+
+            Excel.Application ex = new Excel.Application();
+            ex.Visible = true;
+            Workbook workbook = ex.Workbooks.Add(System.Reflection.Missing.Value);
+            Worksheet worksheet1 = (Worksheet)workbook.Sheets[1];
+
+            // Заголовки
+            var properties = exportData.First().GetType().GetProperties();
+            for (int i = 0; i < properties.Length; i++)
+            {
+                worksheet1.Cells[1, i + 1] = properties[i].Name;
+                ((Range)worksheet1.Cells[1, i + 1]).Font.Bold = true;
+                worksheet1.Columns[i + 1].ColumnWidth = 15;
+            }
+
+            // Данные
+            for (int j = 0; j < exportData.Count; j++)
+            {
+                var user = exportData[j];
+                for (int i = 0; i < properties.Length; i++)
+                {
+                    var value = properties[i].GetValue(user)?.ToString() ?? "";
+                    worksheet1.Cells[j + 2, i + 1] = value;
+                }
+            }
+        }
+
+
+
 
         public HeaderFooter LeftHeader => throw new NotImplementedException();
 
@@ -83,5 +140,6 @@ namespace PCAdminApp.Pages
         public HeaderFooter CenterFooter => throw new NotImplementedException();
 
         public HeaderFooter RightFooter => throw new NotImplementedException();
+
     }
 }
