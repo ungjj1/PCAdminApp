@@ -38,7 +38,32 @@ namespace PCAdminApp.Pages
 
         private void BtnDeleteZone_Click(object sender, RoutedEventArgs e)
         {
+            var button = sender as Button;
+            var zona = button?.DataContext as Zone;
 
+            if (zona == null)
+            {
+                MessageBox.Show("Пожалуйста, выберите зону для удаления.",
+                              "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            MessageBoxResult result = MessageBox.Show(
+                    $"Вы действительно хотите удалить зону?\n\n" +
+                    $"Название: {zona.Name}\n" +
+                    $"Цена за час: {zona.PricePerHour}\n" +
+                    $"Это действие нельзя отменить!",
+                    "Подтверждение удаления",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                App.db.Zone.Remove(zona);
+                App.db.SaveChanges();
+
+                LoadData();
+            }
         }
     }
 }
