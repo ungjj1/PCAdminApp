@@ -154,6 +154,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AddEditPeripProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddUserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -205,6 +209,9 @@
     </Compile>
     <Compile Include="Pages\AddEditConfigurationWindow.xaml.cs">
       <DependentUpon>AddEditConfigurationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEditPeripProfileWindow.xaml.cs">
+      <DependentUpon>AddEditPeripProfileWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddUserWindow.xaml.cs">
       <DependentUpon>AddUserWindow.xaml</DependentUpon>

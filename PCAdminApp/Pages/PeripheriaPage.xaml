@@ -18,7 +18,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="BtnEditPeripheria" Click="BtnEditPeripheria_Click"  Margin="5" Background="#E82E39" Grid.Column="0" Height="40">
+                    <Button x:Name="BtnEditPeripheria" Click="BtnEditPeripheria_Click"  Margin="5" Background="#E82E39" Grid.Column="0" Height="40" Visibility="{Binding EditButtonVisibility}">
                         <Button.Content>
                             <materialDesign:PackIcon Kind="Pencil" Foreground="White"/>
                         </Button.Content>

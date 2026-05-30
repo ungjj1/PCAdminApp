@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -23,11 +24,13 @@ namespace PCAdminApp.Pages
     {
         private List<PeripheralProfile> allper;
         private User currentuser;
+        private static bool isEditWindowOpen = false;
         public PeripheriaPage(User currentuser)
         {
             InitializeComponent();
             this.currentuser = currentuser;
             ListPheripheiral.ItemsSource = App.db.PeripheralProfile.ToList();
+
             LoadData();
             LoadSortOptions();
         }
@@ -93,14 +96,57 @@ namespace PCAdminApp.Pages
         {
             RefreshData();
         }
+        private void OpenEditWindow(PeripheralProfile currentConfig)
+        {
+            try
+            {
+                if (isEditWindowOpen || AddEditPeripProfileWindow.isEditWindowOpen)
+                {
+                    MessageBox.Show("Окно редактирования уже открыто", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                isEditWindowOpen = true;
+
+                var editWindow = new AddEditPeripProfileWindow(currentConfig);
+                editWindow.Owner = Window.GetWindow(this);
+                editWindow.Closed += (s, args) =>
+                {
+                    isEditWindowOpen = false;
+                    LoadData();
+                };
+                editWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                isEditWindowOpen = false;
+                MessageBox.Show("Ошибка при открытии окна редактирования", $"{ex}", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private void BtnAddPeripProfile_Click(object sender, RoutedEventArgs e)
         {
-
+            if (currentuser.RoleId != 1)
+            {
+                MessageBox.Show("У вас нет права на добавление конфигураций", "Нет прав", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                OpenEditWindow(null);
+            }
         }
 
         private void BtnEditPeripheria_Click(object sender, RoutedEventArgs e)
         {
-
+            var button = sender as Button;
+            var config = button?.DataContext as PeripheralProfile;
+            if (currentuser.RoleId != 1)
+            {
+                MessageBox.Show("У вас нет права на редактирование конфигураций", "Нет прав", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                OpenEditWindow(config);
+            }
         }
     }
 }
