@@ -44,7 +44,7 @@ namespace PCAdminApp
         private void BtnTicket_Click(object sender, RoutedEventArgs e)
         {
             TxtPageTitle.Text = "Заявки";
-            //MainFrame.Navigate(new Pages.TicketPage());
+            MainFrame.Navigate(new Pages.TicketPage(currentUser));
         }
 
         private void BtnInventory_Click(object sender, RoutedEventArgs e)
