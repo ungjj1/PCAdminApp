@@ -28,6 +28,7 @@ namespace PCAdminApp.Pages
         private User currentUser;
         private List<Client> allClients;
         private List<User> allusers;
+        private List<Ticket> alltickets;
         public ReportPage(User user)
         {
             InitializeComponent();
@@ -39,9 +40,11 @@ namespace PCAdminApp.Pages
         {
             allClients = App.db.Client.ToList();
             allusers = App.db.User.ToList();
+            alltickets = App.db.Ticket.ToList();
 
             ClientsDG.ItemsSource = allClients;
             UsersDG.ItemsSource = allusers;
+            TicketsDG.ItemsSource = alltickets;
         }
 
         private void BtnClientReport_Click(object sender, RoutedEventArgs e)
@@ -121,6 +124,43 @@ namespace PCAdminApp.Pages
                 for (int i = 0; i < properties.Length; i++)
                 {
                     var value = properties[i].GetValue(user)?.ToString() ?? "";
+                    worksheet1.Cells[j + 2, i + 1] = value;
+                }
+            }
+        }
+        private void BtnTicketReport_Click(object sender, RoutedEventArgs e)
+        {
+            if (TicketsDG.Items.Count == 0)
+            {
+                MessageBox.Show("Нет данных для экспорта");
+                return;
+            }
+
+            // Получаем данные из источника (allClients)
+            var ticketsToExport = alltickets ?? TicketsDG.ItemsSource as List<Ticket>;
+            if (ticketsToExport == null) return;
+
+            Excel.Application ex = new Excel.Application();
+            ex.Visible = true;
+            Workbook workbook = ex.Workbooks.Add(System.Reflection.Missing.Value);
+            Worksheet worksheet1 = (Worksheet)workbook.Sheets[1];
+
+            // Заголовки
+            var properties = typeof(Ticket).GetProperties();
+            for (int i = 0; i < properties.Length - 1; i++)
+            {
+                worksheet1.Cells[1, i + 1] = properties[i].Name;
+                ((Range)worksheet1.Cells[1, i + 1]).Font.Bold = true;
+                worksheet1.Columns[i + 1].ColumnWidth = 15;
+            }
+
+            // Данные
+            for (int j = 0; j < ticketsToExport.Count; j++)
+            {
+                var ticket= ticketsToExport[j];
+                for (int i = 0; i < properties.Length - 1; i++)
+                {
+                    var value = properties[i].GetValue(ticket)?.ToString() ?? "";
                     worksheet1.Cells[j + 2, i + 1] = value;
                 }
             }

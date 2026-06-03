@@ -77,5 +77,31 @@
                 </Button.Resources>
             </Button>
         </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <DataGrid Name="TicketsDG" AutoGenerateColumns="False" ItemsSource="{Binding Ticket}" Visibility="Collapsed">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Computer.PCName}" x:Name="DGComputerName" Header="Название устройства" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=Description}" x:Name="DGDescription" Header="Описание" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=CreatedAt}" x:Name="DGCreatedAt" Header="Дата создания" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2" VerticalAlignment="Center" Margin="5 -50 5 0">
+            <TextBlock Text="Создать отчет о тикетах" Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+            <TextBlock TextWrapping="Wrap" Margin="0 0 0 10">
+        Данный отчет хранит следующую информацию: <LineBreak/>
+        1) Имеющиеся тикеты;<LineBreak/>
+        2) Номер устройства;<LineBreak/>
+        3) Описание неисправности;<LineBreak/>
+        4) Дата создания тикета.
+            </TextBlock>
+            <Button x:Name="BtnTicketReport" Click="BtnTicketReport_Click"  Content="Создать отчет" Height="25" FontSize="14" BorderThickness="0" Background="#E82E39" Foreground="White" FontWeight="DemiBold">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>
