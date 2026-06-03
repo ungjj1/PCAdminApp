@@ -18,17 +18,17 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Vertical" Grid.Column="0" Margin="10">
-                        <TextBlock>
+                        <TextBlock FontSize="16">
                             <Run Text="Название игровой зоны:" FontWeight="Bold"/>
                             <Run Text="{Binding Name}"/>
                         </TextBlock>
-                        <TextBlock>
+                        <TextBlock FontSize="16">
                             <Run Text="Цена за час:" FontWeight="Bold"/>
                             <Run Text="{Binding PricePerHour}"/>
                         </TextBlock>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Margin="10">
-                        <Button x:Name="BtnDeleteZone" Background="#E82E39" Foreground="White" BorderThickness="0" Click="BtnDeleteZone_Click" VerticalAlignment="Center" Margin="0 3 0 0 " Padding="5">
+                        <Button x:Name="BtnDeleteZone" Background="#E82E39" Foreground="White" BorderThickness="0" Click="BtnDeleteZone_Click" VerticalAlignment="Center" Margin="0 10 0 0 " Padding="5">
                             <Button.Content>
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon Kind="Garbage"/>

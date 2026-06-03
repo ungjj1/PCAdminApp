@@ -19,15 +19,15 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Vertical" Grid.Column="0">
-                        <TextBlock>
+                        <TextBlock FontSize="16">
                             <Run Text="Название устройства:" FontWeight="DemiBold"/>
                             <Run Text="{Binding Computer.PCName}"/>
                         </TextBlock>
-                        <TextBlock>
-                            <Run Text="Описание тикета" FontWeight="DemiBold"/>
+                        <TextBlock Width="300 " TextWrapping="Wrap" FontSize="16">
+                            <Run Text="Описание тикета:" FontWeight="DemiBold"/>
                             <Run Text="{Binding Description}"/>
                         </TextBlock>
-                        <TextBlock>
+                        <TextBlock FontSize="16">
                             <Run Text="Дата создания тикета:" FontWeight="DemiBold"/>
                             <Run Text="{Binding CreatedAt, StringFormat=\{0:dd.MM.yyyy\}}"/>
                         </TextBlock>
